@@ -1,0 +1,413 @@
+@charset "UTF-8";
+
+/*--------------------------------------------------------------
+    TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Settings: used with preprocessors and contain font, colors definitions, etc.
+2.0 - Tools: globally used mixins and functions. Use for preprocessor only.
+3.0 - Generic: reset and/or normalize styles, box-sizing definition, etc. 
+4.0 - Elements: styling for bare/generic HTML elements 
+        - Typography: Typography, Links, Address
+5.0 - Objects: class-based selectors which define undecorated design patterns, building blocks
+        - Framework
+6.0 - Components: specific designed components
+        - Nav
+        - Hero 
+        - Backgrounds & Spacing
+        - Footer 
+7.0 - Utilities: utilities and helper classes with ability to override anything which goes before in the triangle, eg. hide helper class
+        - Screen Reader
+8.0 - media queries 
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+    3.0 - GENERIC
+-------------------------------------------------------------- */
+/* for some time, universal and html or body selector are all that will appear under here  */ 
+
+
+/* ----- UNIVERSAL ----- */
+
+* {
+    -o-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Poppins", sans-serif;
+}
+
+/*--------------------------------------------------------------
+    4.0 - ELEMENTS
+    - single (not contextual) element selectors only. No classes. No IDs. No contextual selectors. 
+-------------------------------------------------------------- */
+/* shared styles across elements are grouped at the top, not under an individual elements. Reduces repeated styles */ 
+
+/* ----- TYPOGRAPHY ----- */
+.text-magenta{
+    color: #D42C59;
+}
+.text-sorbet{
+    color: #FFDDD2;
+}
+.text-white{
+    color: white;
+}
+.text-black{
+    color: #394053;
+}
+
+/* ----- LINKS ----- */
+li, a{
+    list-style-type: none;
+    text-decoration: none;
+}
+nav a, nav a:visited{
+    color: #394053;
+}
+a, a:visited, li:visited{
+    text-decoration: none;
+}   
+
+/* ----- ADDRESS ----- */
+
+/*--------------------------------------------------------------
+    5.0 - OBJECTS
+-------------------------------------------------------------- */
+/* for some time, only .wrapper and .row are likely to appear under this category */ 
+
+/* ----- FRAMEWORK ----- */
+.wrapper {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.flex{
+    display: flex;
+}
+
+.flexwrap{
+    flex-wrap: wrap;
+}
+
+.flexrow{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.grid{
+    display: grid;
+    gap: 30px;
+
+}
+
+div.shapes-grid .flex{
+    margin: 70px 0 ;
+    gap: 20px;
+    justify-content: space-between;
+    
+}
+/*--------------------------------------------------------------
+    6.0 - COMPONENTS
+-------------------------------------------------------------- */
+/* shared styles across components are grouped at the top, not under an individual component. Reduces repeated styles */ 
+h1{
+    font-size: clamp(2.5rem, 3.3vw + 1.7rem, 3.75rem);  
+    font-weight: 900;
+    line-height: 1.2;
+    text-align: center;
+    max-width: 690px;
+    margin: 0 auto 40px;
+}
+
+h2{
+    font-weight: 900;
+    font-size: 48px;
+}
+
+h3{
+    font-size: clamp(2rem, 3.3vw + 0.5rem, 2.625rem);
+    line-height: 1.2;
+    font-weight: 900;
+    margin-top: 0;
+}
+
+ul{
+    gap: 40px;
+}
+
+li{
+    font-size: 18px;
+    font-weight: 700;
+    color: #394053;
+}
+/* hero / footer / nav -- are considered components because they'd repeat on across pages on a multi page site. be careful to not get them in the habit of styling based on the 'content' that appears on the page but rather what components make those up */ 
+
+
+/* ----- NAV ----- */
+header h2{
+    color: #D42C59;
+}
+
+header div.flex{
+    align-items: center;
+}
+
+header.wrapper div.flex{
+    justify-content: space-between;
+}
+
+/* ----- HERO ----- */
+
+section.hero{
+    text-align: center;
+    margin: 0 auto 70px;
+}
+
+section.hero p{
+    font-size: clamp(1.25rem, 0.7vw + 1rem, 1.375rem);
+    max-width: 650px;
+    margin: 0 auto 50px;
+    line-height: 1.4;
+}
+
+.hero div.bg-sorbet{
+    padding: 75px ;    
+}
+
+/* ----- ABOUT ----- */
+section.about{
+    border: solid 16px #ffddd2;
+    padding: 40px;
+}
+
+.about p{
+    font-size: clamp(1.25rem, 0.7vw + 1rem, 1.375rem);
+    line-height: 1.2;
+}
+
+.about a{
+    text-decoration: none;
+    color: #D42C59;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.about div.grid{
+gap: 30px;
+grid: auto / 349px 1fr;
+}
+
+.about div.flex{
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.about img:nth-child(1){
+    width: 100%;
+    height: auto;
+}
+
+/* ----- BACKGROUNDS AND SPACING ----- */
+.bg-magenta{
+    background: #D42C59;
+}
+
+.bg-sorbet{
+    background: #FFDDD2;
+}
+
+.bg-goldenrod{
+    background: #F2B100;
+}
+
+.bg-black{
+    background: #394053;
+}
+
+.bg-white{
+    background: #FFFFFF;
+}
+
+/* ----- FOOTER ----- */
+footer h2{
+    color: #FFFFFF;
+    margin-top: 0;
+}
+
+footer{
+    border-bottom:solid 16px #F2B100;
+    padding: 45px;
+}
+
+footer div div.flex:nth-child(1){
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+footer div div.flex:nth-child(2){
+    gap: 25px;
+}
+/*--------------------------------------------------------------
+    7.0 - UTILITY
+-------------------------------------------------------------- */
+/* only classes that could be used on 'any' element should go here  */ 
+
+.sr-only {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+.circle{
+width: 60px;
+height: 60px;
+border-radius: 50%;
+}
+
+.square{
+width: 60px;
+height: 60px;
+}
+
+.rectangle{
+    background: rgba(255, 255, 255, 0.20);
+    width: 300px;
+    height: 45px;
+    display: block ;
+    border:4px solid #FFDDD2;
+}
+
+.button{
+    padding:9px 63px;
+    font-size: 18px;
+    font-weight: 700;
+    display: inline-block;
+    letter-spacing: 4px;
+}
+
+.button:hover, a:hover{
+    opacity: 50%;
+}
+
+/*--------------------------------------------------------------
+    8.0 - MEDIA QUERIES
+-------------------------------------------------------------- */
+/* ----- TABLET ----- */ 
+
+@media only screen and (max-width: 800px){
+    .about div.grid{
+        gap: 30px;
+        grid: auto / auto ;
+        align-items: center;
+        }
+}
+
+
+
+
+
+
+/* ----- TABLET ----- */
+
+@media only screen and (max-width: 700px) {
+
+    /* ----- HEADER ----- */
+    header.wrapper>.flex{
+        flex-direction: column;
+       
+    }
+
+    h1{
+        margin-bottom: 20px;
+    }
+
+    h2{
+        margin: 20px;
+    }
+    
+    nav{
+         background-color: #F2B100;
+         width: 100vw;
+         margin: 0;
+    }
+    ul{
+        align-items: center;
+        justify-content: center;
+        padding-left: 0;
+    }
+    
+    /* ----- MAIN ----- */
+    section.hero p{
+        font-size: 20px;
+    }
+
+
+
+    /* ----- about ----- */
+
+    section.about{
+        padding: 30px;
+        margin: 20px;
+    }
+
+    .about div.flex{
+        justify-content: flex-start;
+    }
+
+    /* ----- footer ----- */
+
+    footer .wrapper>.flex{
+        flex-direction: column;
+    }
+
+    footer .flex{
+        align-items: center;
+    }
+
+    footer div div div>div.flex{
+        justify-content: center;
+    }
+
+}
+
+
+
+/* ----- PHONE ----- */
+
+
+
+@media only screen and (max-width: 500px) {
+    .wrapper {
+        padding: 0 10px;
+    }
+
+    .hero div.bg-sorbet {
+        padding: 40px 20px ;
+    }
+
+    section.hero.wrapper{
+        padding: 0px;
+    }
+
+
+    /* ----- footer ----- */
+
+    .shapes-grid .flex>div:nth-child(n+13){
+        display: none;
+    }
+}
+
+
+
+
